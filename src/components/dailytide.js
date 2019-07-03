@@ -55,7 +55,7 @@ class DailyTide extends Component {
 }
 
 const GraphWrapper = styled.div`
-  width: 75%;
+  width: 50%;
   height: auto;
   margin: 0 auto;
 `
