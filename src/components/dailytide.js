@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import moment from "moment"
+import styled from "styled-components"
 import LineChart from "./linechart"
+import Table from "./table"
 
 class DailyTide extends Component {
   state = {
@@ -31,15 +33,30 @@ class DailyTide extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.tideData ? (
-          <LineChart data={this.state.tideData} />
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
+      <>
+        <GraphWrapper>
+          {this.state.tideData ? (
+            <LineChart data={this.state.tideData} />
+          ) : (
+            <p>Loading...</p>
+          )}
+        </GraphWrapper>
+        <TableWrapper>
+          <Table data={this.state.tideData} />
+        </TableWrapper>
+      </>
     )
   }
 }
+
+const GraphWrapper = styled.div`
+  width: 500px;
+  height: auto;
+  margin: 0 auto;
+`
+
+const TableWrapper = styled.div`
+  padding-top: 60px;
+`
 
 export default DailyTide
