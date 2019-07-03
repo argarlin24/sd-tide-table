@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import moment from "moment"
-import LineChart from "./linechart"
+import Table from "./table"
 
-class DailyTide extends Component {
+class MonthlyTide extends Component {
   state = {
     tideData: null,
   }
@@ -11,13 +11,15 @@ class DailyTide extends Component {
   }
 
   async query() {
-    const begin = moment().format("YYYYMMDD")
-    // const end = moment()
-    //   .add(2, "days")
-    //   .format("YYYYMMDD")
+    const begin = moment()
+      .startOf("month")
+      .format("YYYYMMDD")
+    const end = moment()
+      .endOf("month")
+      .format("YYYYMMDD")
     try {
       const res = await fetch(
-        `https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${begin}&end_date=${begin}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
+        `https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${begin}&end_date=${end}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
       )
       const data = await res.json()
       this.setState({
@@ -30,10 +32,11 @@ class DailyTide extends Component {
   }
 
   render() {
+    console.log(this.state.tideData)
     return (
       <div>
         {this.state.tideData ? (
-          <LineChart data={this.state.tideData} />
+          <Table data={this.state.tideData} />
         ) : (
           <p>Loading...</p>
         )}
@@ -42,4 +45,4 @@ class DailyTide extends Component {
   }
 }
 
-export default DailyTide
+export default MonthlyTide
