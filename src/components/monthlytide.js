@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import moment from "moment"
 import Table from "./table"
+import Spinner from "./spinner"
 
 class MonthlyTide extends Component {
   state = {
@@ -32,13 +33,12 @@ class MonthlyTide extends Component {
   }
 
   render() {
-    console.log(this.state.tideData)
     return (
       <div>
         {this.state.tideData ? (
           <Table data={this.state.tideData} />
         ) : (
-          <p>Loading...</p>
+          <Spinner />
         )}
       </div>
     )

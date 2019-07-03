@@ -4,7 +4,6 @@ import moment from "moment"
 
 class LineChart extends Component {
   render() {
-    console.log(this.props.data)
     //time string value parsed into standard local time
     const time = this.props.data.predictions.map(tide =>
       moment(tide.t.slice(11, 16), "HH:mm").format("hh:mm a")

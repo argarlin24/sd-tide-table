@@ -32,11 +32,7 @@ class DailyTide extends Component {
   render() {
     return (
       <div>
-        {this.state.tideData ? (
-          <LineChart data={this.state.tideData} />
-        ) : (
-          <p>Loading...</p>
-        )}
+        <LineChart data={this.state.tideData} />
       </div>
     )
   }

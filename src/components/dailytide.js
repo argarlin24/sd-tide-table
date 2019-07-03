@@ -3,6 +3,7 @@ import moment from "moment"
 import styled from "styled-components"
 import LineChart from "./linechart"
 import Table from "./table"
+import Spinner from "./spinner"
 
 class DailyTide extends Component {
   state = {
@@ -38,14 +39,14 @@ class DailyTide extends Component {
           {this.state.tideData ? (
             <LineChart data={this.state.tideData} />
           ) : (
-            <p>Loading...</p>
+            <Spinner />
           )}
         </GraphWrapper>
         <TableWrapper>
           {this.state.tideData ? (
             <Table data={this.state.tideData} />
           ) : (
-            <p>Loading...</p>
+            <Spinner />
           )}
         </TableWrapper>
       </>
