@@ -42,7 +42,11 @@ class DailyTide extends Component {
           )}
         </GraphWrapper>
         <TableWrapper>
-          <Table data={this.state.tideData} />
+          {this.state.tideData ? (
+            <Table data={this.state.tideData} />
+          ) : (
+            <p>Loading...</p>
+          )}
         </TableWrapper>
       </>
     )
@@ -50,7 +54,7 @@ class DailyTide extends Component {
 }
 
 const GraphWrapper = styled.div`
-  width: 500px;
+  width: 75%;
   height: auto;
   margin: 0 auto;
 `

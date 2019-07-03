@@ -16,7 +16,7 @@ class LineChart extends Component {
       labels: time,
       datasets: [
         {
-          label: "Tides",
+          label: "Tide",
           fill: false,
           lineTension: 0.4,
           backgroundColor: "rgba(75,192,192,0.4)",
