@@ -1,6 +1,9 @@
 import React, { Component } from "react"
 import { Line } from "react-chartjs-2"
+import { defaults } from "react-chartjs-2"
 import moment from "moment"
+
+defaults.global.defaultFontColor = "#dddddd"
 
 class LineChart extends Component {
   render() {
@@ -11,6 +14,7 @@ class LineChart extends Component {
     // tide value mapped to array
     const tideValues = this.props.data.predictions.map(tide => tide.v)
     //chart config
+
     const data = {
       labels: time,
       datasets: [
