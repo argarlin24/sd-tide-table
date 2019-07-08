@@ -8,6 +8,7 @@ import Spinner from "./spinner"
 class DailyTide extends Component {
   state = {
     tideData: null,
+    formattedData: [],
   }
   componentDidMount() {
     this.query()
@@ -24,19 +25,14 @@ class DailyTide extends Component {
         tideData: data,
         loaded: true,
       })
+      this.formatData(data)
     } catch (error) {
       console.log(error)
     }
   }
 
-  // const formatData() {
-  //   const arr = [];
-  //   data.predictions.map(prediction => {
-  //     arr.push(Object.values(prediction));
-  //   })
-  // }
-
   render() {
+    console.log(this.state.tideData)
     return (
       <>
         <GraphWrapper>

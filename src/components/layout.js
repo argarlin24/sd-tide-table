@@ -18,7 +18,11 @@ const Layout = ({ children }) => {
       <Footer>
         <p>
           Data provided by NOAA:
-          <a href="https://tidesandcurrents.noaa.gov/api/" target="_blank">
+          <a
+            href="https://tidesandcurrents.noaa.gov/api/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             CO-OPS Data API
           </a>
         </p>

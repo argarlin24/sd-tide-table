@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import moment from "moment"
 
 const Table = props => {
   return (
@@ -10,11 +11,13 @@ const Table = props => {
           <th scope="col">Height - ft.</th>
           <th scope="col">High/Low</th>
         </tr>
-        {props.data.predictions.map(prediction => (
+        {props.data.predictions.map((prediction, index) => (
           <tr>
-            {Object.values(prediction).map(value => (
-              <td>{value}</td>
-            ))}
+            <td>
+              {moment(prediction.t, "YYYYMMDD HH:mm").format("MM/DD hh:mm a")}
+            </td>
+            <td>{prediction.v}</td>
+            <td>{prediction.type}</td>
           </tr>
         ))}
       </tbody>
