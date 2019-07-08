@@ -3,6 +3,7 @@ import { Line } from "react-chartjs-2"
 import { defaults } from "react-chartjs-2"
 import moment from "moment"
 
+//sets the font color of the graph
 defaults.global.defaultFontColor = "#dddddd"
 
 class LineChart extends Component {
