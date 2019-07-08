@@ -15,9 +15,6 @@ class DailyTide extends Component {
 
   async query() {
     const begin = moment().format("YYYYMMDD")
-    // const end = moment()
-    //   .add(2, "days")
-    //   .format("YYYYMMDD")
     try {
       const res = await fetch(
         `https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${begin}&end_date=${begin}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
@@ -31,6 +28,13 @@ class DailyTide extends Component {
       console.log(error)
     }
   }
+
+  // const formatData() {
+  //   const arr = [];
+  //   data.predictions.map(prediction => {
+  //     arr.push(Object.values(prediction));
+  //   })
+  // }
 
   render() {
     return (
