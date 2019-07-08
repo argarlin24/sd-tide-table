@@ -32,7 +32,6 @@ class DailyTide extends Component {
 	}
 
 	render() {
-		console.log(this.state.tideData);
 		return (
 			<>
 				<GraphWrapper>
