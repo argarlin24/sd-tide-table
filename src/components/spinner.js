@@ -3,6 +3,7 @@ import styled from "styled-components"
 import SycnIcon from "../images/sync-solid.svg"
 
 const Spinner = () => <Rotate src={SycnIcon} alt="Loading" />
+
 const Rotate = styled.img`
   animation: spin 2s linear infinite;
   height: 25px;
