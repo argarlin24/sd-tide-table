@@ -12,8 +12,8 @@ const Table = props => {
         </tr>
         {props.data.predictions.map(prediction => (
           <tr>
-            {Object.values(prediction).map(value => (
-              <td>{value}</td>
+            {Object.values(prediction).map((value, index) => (
+              <td key={index}>{value}</td>
             ))}
           </tr>
         ))}
