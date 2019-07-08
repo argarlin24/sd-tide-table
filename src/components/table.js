@@ -8,7 +8,7 @@ const Table = props => {
       <tbody>
         <tr>
           <th scope="col">Date/Time</th>
-          <th scope="col">Height - ft.</th>
+          <th scope="col">Height</th>
           <th scope="col">High/Low</th>
         </tr>
         {props.data.predictions.map((prediction, index) => (
@@ -16,7 +16,7 @@ const Table = props => {
             <td>
               {moment(prediction.t, "YYYYMMDD HH:mm").format("MM/DD hh:mm a")}
             </td>
-            <td>{prediction.v}</td>
+            <td>{`${Number.parseFloat(prediction.v).toFixed(2)} ft`}</td>
             <td>{prediction.type}</td>
           </tr>
         ))}
