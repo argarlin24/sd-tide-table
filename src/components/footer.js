@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-const Footer = styled.header`
+const Footer = styled.footer`
   display: flex;
   justify-content: center;
-  padding: 30px 0;
+  padding-top: 30px;
   && a {
     text-decoration: none;
     color: #4bc0c0;
