@@ -12,15 +12,18 @@ class MonthlyTide extends Component {
 	}
 
 	async query() {
-		const begin = moment()
+		//Formatted Time Variables
+		const BEGIN = moment()
 			.startOf("month")
 			.format("YYYYMMDD");
-		const end = moment()
+
+		const END = moment()
 			.endOf("month")
 			.format("YYYYMMDD");
+
 		try {
 			const res = await fetch(
-				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${begin}&end_date=${end}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
+				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${BEGIN}&end_date=${END}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
 			);
 			const data = await res.json();
 			this.setState({
