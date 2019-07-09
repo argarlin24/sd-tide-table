@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import MonthlyTide from "../components/monthlytide";
-import PageTitle from "../components/pagetitle";
+import PageTitle from "../elements/pagetitle";
 
 const SecondPage = () => (
 	<Layout>

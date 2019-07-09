@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import DailyTide from "../components/dailytide";
-import PageTitle from "../components/pagetitle";
+import PageTitle from "../elements/pagetitle";
 
 const IndexPage = () => (
 	<Layout>

@@ -3,7 +3,7 @@ import moment from "moment";
 import styled from "styled-components";
 import LineChart from "./linechart";
 import Table from "./table";
-import Spinner from "./spinner";
+import Spinner from "../elements/spinner";
 
 class DailyTide extends Component {
 	state = {
