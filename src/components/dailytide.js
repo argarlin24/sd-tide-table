@@ -12,7 +12,6 @@ class DailyTide extends Component {
 		formattedData: [],
 	};
 	componentDidMount() {
-		// this.query();
 		this.checkStatus();
 	}
 
@@ -45,7 +44,6 @@ class DailyTide extends Component {
 		console.log("called");
 		db.table("dailyTide").get({ id: 1 }, (tideData) => {
 			const today = moment().format("MMDD");
-			console.log(tideData);
 			if (tideData === undefined || tideData.timestamp !== today) {
 				this.query();
 			} else {

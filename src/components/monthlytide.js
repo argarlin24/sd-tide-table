@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import db from "../db";
 import moment from "moment";
 import Table from "./table";
 import Spinner from "../elements/spinner";
@@ -8,7 +9,7 @@ class MonthlyTide extends Component {
 		tideData: null,
 	};
 	componentDidMount() {
-		this.query();
+		this.checkStatus();
 	}
 
 	async query() {
@@ -30,9 +31,31 @@ class MonthlyTide extends Component {
 				tideData: data,
 				loaded: true,
 			});
+			this.updateDB();
 		} catch (error) {
 			console.log(error);
 		}
+	}
+
+	updateDB() {
+		const monthlyTide = this.state.tideData;
+		db.table("monthlyTide").put({
+			id: 1,
+			timestamp: moment().format("MM"),
+			data: monthlyTide,
+		});
+	}
+
+	checkStatus() {
+		console.log("called");
+		db.table("monthlyTide").get({ id: 1 }, (tideData) => {
+			const currentMonth = moment().format("MM");
+			if (tideData === undefined || tideData.timestamp !== currentMonth) {
+				this.query();
+			} else {
+				this.setState({ tideData: tideData.data });
+			}
+		});
 	}
 
 	render() {
