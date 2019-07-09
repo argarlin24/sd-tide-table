@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import db from "../db";
 import moment from "moment";
 import styled from "styled-components";
 import LineChart from "./linechart";
@@ -11,7 +12,8 @@ class DailyTide extends Component {
 		formattedData: [],
 	};
 	componentDidMount() {
-		this.query();
+		// this.query();
+		this.checkStatus();
 	}
 
 	async query() {
@@ -23,12 +25,33 @@ class DailyTide extends Component {
 			const data = await res.json();
 			this.setState({
 				tideData: data,
-				loaded: true,
 			});
-			this.formatData(data);
+			this.updateDB();
 		} catch (error) {
 			console.log(error);
 		}
+	}
+
+	updateDB() {
+		const dailyTide = this.state.tideData;
+		db.table("dailyTide").put({
+			id: 1,
+			timestamp: moment().format("MMDD"),
+			data: dailyTide,
+		});
+	}
+
+	checkStatus() {
+		console.log("called");
+		db.table("dailyTide").get({ id: 1 }, (tideData) => {
+			const today = moment().format("MMDD");
+			console.log(tideData);
+			if (tideData === undefined || tideData.timestamp !== today) {
+				this.query();
+			} else {
+				this.setState({ tideData: tideData.data });
+			}
+		});
 	}
 
 	render() {
