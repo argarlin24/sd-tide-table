@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import moment from "moment";
 
@@ -37,5 +38,9 @@ const StyledTable = styled.table`
 		text-align: center;
 	}
 `;
+
+Table.propTypes = {
+	data: PropTypes.object.isRequired,
+};
 
 export default Table;
