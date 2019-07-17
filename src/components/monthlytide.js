@@ -47,7 +47,6 @@ class MonthlyTide extends Component {
 	}
 
 	checkStatus() {
-		console.log("called");
 		db.table("monthlyTide").get({ id: 1 }, (tideData) => {
 			const currentMonth = moment().format("MM");
 			if (tideData === undefined || tideData.timestamp !== currentMonth) {

@@ -41,7 +41,6 @@ class DailyTide extends Component {
 	}
 
 	checkStatus() {
-		console.log("called");
 		db.table("dailyTide").get({ id: 1 }, (tideData) => {
 			const today = moment().format("MMDD");
 			if (tideData === undefined || tideData.timestamp !== today) {
