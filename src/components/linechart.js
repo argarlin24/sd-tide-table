@@ -14,7 +14,9 @@ const LineChart = (props) => {
 	);
 
 	// tide value mapped to array
-	const TIDE_VALUES = props.data.predictions.map((tide) => tide.v);
+	const TIDE_VALUES = props.data.predictions.map((tide) =>
+		Number.parseFloat(tide.v).toFixed(2)
+	);
 
 	const data = {
 		labels: TIME,
