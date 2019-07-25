@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -8,7 +9,7 @@ import PageTitle from "../elements/pagetitle";
 const SecondPage = () => (
 	<Layout>
 		<SEO title="Page two" />
-		<PageTitle>This Month's Tides</PageTitle>
+		<PageTitle>{`${moment().format("MMMM YYYY")} Tides`}</PageTitle>
 		<MonthlyTide />
 	</Layout>
 );
