@@ -28,7 +28,7 @@ const NavLink = styled.div`
 const Navigation = () => (
 	<NavWrapper>
 		<NavLink href="#">
-			<Link to="/">Home</Link>
+			<Link to="/">Daily</Link>
 		</NavLink>
 		<NavItems>
 			<NavLink className="innerLink">
