@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import GlobalStyle from "../styles/globalstyle";
 import Header from "./header";
 import Navigation from "./navigation";
 import Footer from "./footer";
 
-import "./layout.css";
-
 const Layout = ({ children }) => {
 	return (
 		<>
+			<GlobalStyle />
 			<Header>
 				<Navigation />
 			</Header>
