@@ -8,7 +8,7 @@ import PageTitle from "../elements/pagetitle";
 
 const SecondPage = () => (
 	<Layout>
-		<SEO title="Page two" />
+		<SEO title="Monthly Tides" />
 		<PageTitle>{`${moment().format("MMMM YYYY")} Tides`}</PageTitle>
 		<MonthlyTide />
 	</Layout>
