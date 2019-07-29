@@ -6,6 +6,19 @@ import LineChart from "./linechart";
 import Table from "./table";
 import Spinner from "../elements/spinner";
 
+const GraphWrapper = styled.div`
+	width: 50%;
+	height: auto;
+	margin: 0 auto;
+	@media (max-width: 770px) {
+		width: 75%;
+	}
+`;
+
+const TableWrapper = styled.div`
+	padding-top: 60px;
+`;
+
 class DailyTide extends Component {
 	state = {
 		tideData: null,
@@ -73,17 +86,6 @@ class DailyTide extends Component {
 	}
 }
 
-const GraphWrapper = styled.div`
-	width: 50%;
-	height: auto;
-	margin: 0 auto;
-	@media (max-width: 770px) {
-		width: 75%;
-	}
-`;
 
-const TableWrapper = styled.div`
-	padding-top: 60px;
-`;
 
 export default DailyTide;
