@@ -29,10 +29,10 @@ class DailyTide extends Component {
 	}
 
 	async query() {
-		const begin = moment().format("YYYYMMDD");
+		const today = moment().format("YYYYMMDD");
 		try {
 			const res = await fetch(
-				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${begin}&end_date=${begin}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
+				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${today}&end_date=${today}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
 			);
 			const data = await res.json();
 			this.setState({
@@ -85,7 +85,5 @@ class DailyTide extends Component {
 		);
 	}
 }
-
-
 
 export default DailyTide;
