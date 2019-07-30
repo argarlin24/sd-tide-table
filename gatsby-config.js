@@ -20,7 +20,7 @@ module.exports = {
 			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: `San Diego Tides`,
-				short_name: `SD-Tides`,
+				short_name: `SD Tides`,
 				start_url: `/`,
 				background_color: `#373740`,
 				theme_color: `#4bc0c0`,
