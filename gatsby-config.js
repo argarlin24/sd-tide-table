@@ -22,7 +22,7 @@ module.exports = {
 				name: `San Diego Tides`,
 				short_name: `SD Tides`,
 				start_url: `/`,
-				background_color: `#373740`,
+				background_color: `#4bc0c0`,
 				theme_color: `#4bc0c0`,
 				display: `standalone`,
 				icon: `src/images/wave-icon.svg`, // This path is relative to the root of the site.
