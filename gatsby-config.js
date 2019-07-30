@@ -19,12 +19,12 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
+				name: `San Diego Tides`,
+				short_name: `SD-Tides`,
 				start_url: `/`,
 				background_color: `#373740`,
-				theme_color: `#663399`,
-				display: `#373740`,
+				theme_color: `#4bc0c0`,
+				display: `standalone`,
 				icon: `src/images/wave-icon.svg`, // This path is relative to the root of the site.
 			},
 		},
