@@ -26,6 +26,7 @@ module.exports = {
 				theme_color: `#4bc0c0`,
 				display: `standalone`,
 				icon: `src/images/wave-icon.svg`, // This path is relative to the root of the site.
+				legacy: true,
 			},
 		},
 		`gatsby-plugin-offline`,
