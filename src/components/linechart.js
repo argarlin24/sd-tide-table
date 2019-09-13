@@ -8,23 +8,25 @@ import moment from "moment";
 defaults.global.defaultFontColor = "#dddddd";
 
 const LineChart = (props) => {
+	console.log(props.sixMinData);
+	// console.log(props);
 	//time string value parsed into standard local time
-	const TIME = props.data.predictions.map((tide) =>
+	const SIX_TIME = props.sixMinData.predictions.map((tide) =>
 		moment(tide.t.slice(11, 16), "HH:mm").format("hh:mm a")
 	);
 
 	// tide value mapped to array
-	const TIDE_VALUES = props.data.predictions.map((tide) =>
+	const SIX_TIDE_VALUES = props.sixMinData.predictions.map((tide) =>
 		Number.parseFloat(tide.v).toFixed(2)
 	);
 
 	const data = {
-		labels: TIME,
+		labels: SIX_TIME,
 		datasets: [
 			{
 				label: "Tide",
-				fill: false,
-				lineTension: 0.4,
+				fill: true,
+				lineTension: 0.04,
 				backgroundColor: "rgba(75,192,192,0.4)",
 				borderWidth: 2,
 				borderColor: "rgba(75,192,192,1)",
@@ -34,22 +36,41 @@ const LineChart = (props) => {
 				borderJoinStyle: "miter",
 				pointBorderColor: "rgba(75,192,192,1)",
 				pointBackgroundColor: "#fff",
-				pointBorderWidth: 1,
+				pointBorderWidth: 0,
 				pointHoverRadius: 5,
 				pointHoverBackgroundColor: "rgba(75,192,192,1)",
 				pointHoverBorderColor: "rgba(220,220,220,1)",
 				pointHoverBorderWidth: 2,
-				pointRadius: 3,
+				pointRadius: 0,
 				pointHitRadius: 10,
-				data: TIDE_VALUES,
+				data: SIX_TIDE_VALUES,
 			},
 		],
 	};
-	return <Line data={data} />;
+
+	const legendOpts = {
+		display: false,
+	};
+
+	const options = {
+		scales: {
+			xAxes: [
+				{
+					ticks: {
+						display: true,
+						autoSkip: true,
+						maxTicksLimit: 12,
+					},
+				},
+			],
+		},
+	};
+
+	return <Line data={data} options={options} legend={legendOpts} />;
 };
 
 LineChart.propTypes = {
-	data: PropTypes.object.isRequired,
+	sixMinData: PropTypes.object.isRequired,
 };
 
 export default LineChart;

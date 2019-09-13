@@ -21,22 +21,40 @@ const TableWrapper = styled.div`
 
 class DailyTide extends Component {
 	state = {
-		tideData: null,
-		formattedData: [],
+		hiLoData: null,
+		sixMinData: null,
 	};
 	componentDidMount() {
 		this.checkStatus();
 	}
 
-	async query() {
+	async hiLoQuery() {
 		const today = moment().format("YYYYMMDD");
 		try {
 			const res = await fetch(
-				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${today}&end_date=${today}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
+				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${today}&end_date=${today}&datum=MLLW&station=9410230&time_zone=lst_ldt&units=english&interval=hilo&format=json`
 			);
 			const data = await res.json();
+			console.log(data);
 			this.setState({
-				tideData: data,
+				hiLoData: data,
+			});
+			this.updateDB();
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	async completeLevelQuery() {
+		const today = moment().format("YYYYMMDD");
+		try {
+			const res = await fetch(
+				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${today}+00%3A00&end_date=${today}+23%3A00&datum=MLLW&station=9410230&time_zone=lst_ldt&units=english&format=json`
+			);
+			const data = await res.json();
+			console.log(data);
+			this.setState({
+				sixMinData: data,
 			});
 			this.updateDB();
 		} catch (error) {
@@ -45,21 +63,42 @@ class DailyTide extends Component {
 	}
 
 	updateDB() {
-		const dailyTide = this.state.tideData;
+		const dailyTide = this.state.hiLoData;
+		const sixMinTide = this.state.sixMinData;
+
 		db.table("dailyTide").put({
 			id: 1,
 			timestamp: moment().format("MMDD"),
 			data: dailyTide,
 		});
+
+		db.table("sixMinTide").put({
+			id: 1,
+			timestamp: moment().format("MMDD"),
+			data: sixMinTide,
+		});
 	}
 
 	checkStatus() {
-		db.table("dailyTide").get({ id: 1 }, (tideData) => {
+		db.table("dailyTide").get({ id: 1 }, (hiLoData) => {
 			const today = moment().format("MMDD");
-			if (tideData === undefined || tideData.timestamp !== today) {
-				this.query();
+			if (hiLoData === undefined || hiLoData.timestamp !== today) {
+				this.hiLoQuery();
 			} else {
-				this.setState({ tideData: tideData.data });
+				this.setState({
+					hiLoData: hiLoData.data,
+				});
+			}
+		});
+
+		db.table("sixMinTide").get({ id: 1 }, (sixMinData) => {
+			const today = moment().format("MMDD");
+			if (sixMinData === undefined || sixMinData.timestamp !== today) {
+				this.completeLevelQuery();
+			} else {
+				this.setState({
+					sixMinData: sixMinData.data,
+				});
 			}
 		});
 	}
@@ -68,15 +107,18 @@ class DailyTide extends Component {
 		return (
 			<>
 				<GraphWrapper>
-					{this.state.tideData ? (
-						<LineChart data={this.state.tideData} />
+					{this.state.sixMinData ? (
+						<LineChart
+							sixMinData={this.state.sixMinData}
+							hiLoData={this.state.hiLoData}
+						/>
 					) : (
 						<Spinner />
 					)}
 				</GraphWrapper>
 				<TableWrapper>
-					{this.state.tideData ? (
-						<Table data={this.state.tideData} />
+					{this.state.hiLoData ? (
+						<Table data={this.state.hiLoData} />
 					) : (
 						<Spinner />
 					)}
