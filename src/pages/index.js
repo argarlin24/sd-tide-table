@@ -10,7 +10,7 @@ import Region from "../components/region";
 const IndexPage = () => (
 	<Layout>
 		<SEO title="Southern California Tides Today" />
-		<PageTitle>San Diego Tides</PageTitle>
+		<PageTitle>Southern California Tides</PageTitle>
 		<SubHeading>Today's Tides</SubHeading>
 		<Region>
 			<DailyTide />
