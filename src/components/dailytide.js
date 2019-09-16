@@ -35,7 +35,6 @@ class DailyTide extends Component {
 				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${today}&end_date=${today}&datum=MLLW&station=9410230&time_zone=lst_ldt&units=english&interval=hilo&format=json`
 			);
 			const data = await res.json();
-			console.log(data);
 			this.setState({
 				hiLoData: data,
 			});
@@ -52,7 +51,6 @@ class DailyTide extends Component {
 				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${today}+00%3A00&end_date=${today}+23%3A00&datum=MLLW&station=9410230&time_zone=lst_ldt&units=english&format=json`
 			);
 			const data = await res.json();
-			console.log(data);
 			this.setState({
 				sixMinData: data,
 			});

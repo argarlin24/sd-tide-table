@@ -8,8 +8,6 @@ import moment from "moment";
 defaults.global.defaultFontColor = "#dddddd";
 
 const LineChart = (props) => {
-	console.log(props.sixMinData);
-	// console.log(props);
 	//time string value parsed into standard local time
 	const SIX_TIME = props.sixMinData.predictions.map((tide) =>
 		moment(tide.t.slice(11, 16), "HH:mm").format("hh:mm a")
