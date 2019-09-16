@@ -5,13 +5,16 @@ import SEO from "../components/seo";
 import DailyTide from "../components/dailytide";
 import PageTitle from "../elements/pagetitle";
 import SubHeading from "../elements/subheading";
+import Region from "../components/region";
 
 const IndexPage = () => (
 	<Layout>
-		<SEO title="San Diego Tides Today" />
+		<SEO title="Southern California Tides Today" />
 		<PageTitle>San Diego Tides</PageTitle>
 		<SubHeading>Today's Tides</SubHeading>
-		<DailyTide />
+		<Region>
+			<DailyTide />
+		</Region>
 	</Layout>
 );
 

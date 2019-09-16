@@ -12,6 +12,12 @@ class MonthlyTide extends Component {
 		this.checkStatus();
 	}
 
+	componentDidUpdate(prevProps) {
+		if (this.props.region !== prevProps.region) {
+			this.checkStatus();
+		}
+	}
+
 	async query() {
 		//Formatted Time Variables
 		const BEGIN = moment()
@@ -24,7 +30,9 @@ class MonthlyTide extends Component {
 
 		try {
 			const res = await fetch(
-				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${BEGIN}&end_date=${END}&datum=MLLW&station=TWC0405&time_zone=lst_ldt&units=english&interval=hilo&format=json`
+				`https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&begin_date=${BEGIN}&end_date=${END}&datum=MLLW&station=${
+					this.props.region
+				}&time_zone=lst_ldt&units=english&interval=hilo&format=json`
 			);
 			const data = await res.json();
 			this.setState({
@@ -40,14 +48,14 @@ class MonthlyTide extends Component {
 	updateDB() {
 		const monthlyTide = this.state.tideData;
 		db.table("monthlyTide").put({
-			id: 1,
+			id: this.props.region,
 			timestamp: moment().format("MM"),
 			data: monthlyTide,
 		});
 	}
 
 	checkStatus() {
-		db.table("monthlyTide").get({ id: 1 }, (tideData) => {
+		db.table("monthlyTide").get({ id: this.props.region }, (tideData) => {
 			const currentMonth = moment().format("MM");
 			if (tideData === undefined || tideData.timestamp !== currentMonth) {
 				this.query();
