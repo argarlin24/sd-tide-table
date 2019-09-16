@@ -21,7 +21,7 @@ class Region extends Component {
 						>
 							<option value={9410230}>San Diego</option>
 							<option value={9410660}>Los Angeles</option>
-							<option value={9411340}>Santa Barabara</option>
+							<option value={9411340}>Santa Barbara</option>
 						</select>
 					</label>
 				</form>
