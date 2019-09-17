@@ -1,5 +1,5 @@
 <h1 align="center">
-  Southern California Tide Table
+  Southern California Tide Data
 </h1>
 
 Tide data for Southern California without all of the advertisements.
