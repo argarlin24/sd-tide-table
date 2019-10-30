@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
-		title: `San Diego Tide Data`,
-		description: `Daily and monthly tide data for San Diego, California`,
+		title: `Southern California Tide Data`,
+		description: `Daily and monthly tide data for Southern California`,
 		author: `Adam Garling`,
 	},
 	plugins: [
@@ -19,8 +19,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `San Diego Tides`,
-				short_name: `SD Tides`,
+				name: `Southern California Tide Data`,
+				short_name: `Socal Tides`,
 				start_url: `/`,
 				background_color: `#4bc0c0`,
 				theme_color: `#4bc0c0`,
