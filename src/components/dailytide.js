@@ -5,6 +5,8 @@ import styled from "styled-components";
 import LineChart from "./linechart";
 import Table from "./table";
 import Spinner from "../elements/spinner";
+import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
 
 const GraphWrapper = styled.div`
 	width: 50%;
@@ -116,17 +118,23 @@ class DailyTide extends Component {
 			<>
 				<GraphWrapper>
 					{this.state.sixMinData ? (
-						<LineChart
-							sixMinData={this.state.sixMinData}
-							hiLoData={this.state.hiLoData}
-						/>
+						<Zoom>
+							<LineChart
+								sixMinData={this.state.sixMinData}
+								hiLoData={this.state.hiLoData}
+							/>
+						</Zoom>
 					) : (
-						<Spinner />
+						<Fade>
+							<Spinner />
+						</Fade>
 					)}
 				</GraphWrapper>
 				<TableWrapper>
 					{this.state.hiLoData ? (
-						<Table data={this.state.hiLoData} />
+						<Fade duration={5000}>
+							<Table data={this.state.hiLoData} />
+						</Fade>
 					) : (
 						<Spinner />
 					)}

@@ -3,6 +3,7 @@ import db from "../db";
 import moment from "moment";
 import Table from "./table";
 import Spinner from "../elements/spinner";
+import Fade from "react-reveal/Fade";
 
 class MonthlyTide extends Component {
 	state = {
@@ -69,9 +70,13 @@ class MonthlyTide extends Component {
 		return (
 			<div>
 				{this.state.tideData ? (
-					<Table data={this.state.tideData} />
+					<Fade duration={5000}>
+						<Table data={this.state.tideData} />
+					</Fade>
 				) : (
-					<Spinner />
+					<Fade>
+						<Spinner />
+					</Fade>
 				)}
 			</div>
 		);
