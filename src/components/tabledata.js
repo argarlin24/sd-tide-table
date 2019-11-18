@@ -43,7 +43,7 @@ const TableData = (props) => {
 };
 
 TableData.propTypes = {
-	data: PropTypes.object.isRequired,
+	prediction: PropTypes.object.isRequired,
 };
 
 export default TableData;
