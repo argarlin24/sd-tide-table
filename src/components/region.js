@@ -12,7 +12,7 @@ const PadSpan = styled.span`
 `;
 
 const Select = styled.select`
-	padding: 5px 5px;
+	padding: 3px 3px;
 	border-radius: 5px;
 `;
 
