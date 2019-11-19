@@ -11,6 +11,11 @@ const PadSpan = styled.span`
 	padding-right: 7px;
 `;
 
+const Select = styled.select`
+	padding: 5px 5px;
+	border-radius: 5px;
+`;
+
 class Region extends Component {
 	state = {
 		region: "9410230",
@@ -27,14 +32,14 @@ class Region extends Component {
 					<form>
 						<label>
 							<PadSpan>Region:</PadSpan>
-							<select
+							<Select
 								value={this.state.region}
 								onChange={this.handleChange}
 							>
 								<option value={9410230}>San Diego</option>
 								<option value={9410660}>Los Angeles</option>
 								<option value={9411340}>Santa Barbara</option>
-							</select>
+							</Select>
 						</label>
 					</form>
 				</DDWrapper>
