@@ -8,35 +8,24 @@ const Current = styled.td`
 `;
 
 const TableData = (props) => {
-	if (
-		moment().format("MMDD") ===
-		moment(props.prediction.t, "YYYYMMDD HH:mm").format("MMDD")
-	) {
+	const TIME = moment(props.prediction.t, "YYYYMMDD HH:mm").format("MM/DD hh:mm a");
+	const TIDE_LEVEL = Number.parseFloat(props.prediction.v).toFixed(2);
+	const HILO = props.prediction.type;
+
+	if (moment().format("MMDD") === moment(props.prediction.t, "YYYYMMDD HH:mm").format("MMDD")) {
 		return (
 			<>
-				<Current>
-					{moment(props.prediction.t, "YYYYMMDD HH:mm").format(
-						"MM/DD hh:mm a"
-					)}
-				</Current>
-				<Current>{`${Number.parseFloat(props.prediction.v).toFixed(
-					2
-				)} ft`}</Current>
-				<Current>{props.prediction.type}</Current>
+				<Current>{TIME}</Current>
+				<Current>{`${TIDE_LEVEL} ft`}</Current>
+				<Current>{HILO}</Current>
 			</>
 		);
 	} else {
 		return (
 			<>
-				<td>
-					{moment(props.prediction.t, "YYYYMMDD HH:mm").format(
-						"MM/DD hh:mm a"
-					)}
-				</td>
-				<td>{`${Number.parseFloat(props.prediction.v).toFixed(
-					2
-				)} ft`}</td>
-				<td>{props.prediction.type}</td>
+				<td>{TIME}</td>
+				<td>{`${TIDE_LEVEL} ft`}</td>
+				<td>{HILO}</td>
 			</>
 		);
 	}
