@@ -119,10 +119,7 @@ class DailyTide extends Component {
 				<GraphWrapper>
 					{this.state.sixMinData ? (
 						<Zoom>
-							<LineChart
-								sixMinData={this.state.sixMinData}
-								hiLoData={this.state.hiLoData}
-							/>
+							<LineChart sixMinData={this.state.sixMinData} hiLoData={this.state.hiLoData} />
 						</Zoom>
 					) : (
 						<Fade>

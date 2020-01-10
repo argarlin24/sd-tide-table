@@ -24,7 +24,6 @@ class MonthlyTide extends Component {
 		const BEGIN = moment()
 			.startOf("month")
 			.format("YYYYMMDD");
-
 		const END = moment()
 			.endOf("month")
 			.format("YYYYMMDD");
