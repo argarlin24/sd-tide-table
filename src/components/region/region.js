@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { DDWrapper, PadSpan, Select } from "./regionstyles";
+import { DDWrapper, PadSpan, Select } from "./styles";
 
 class Region extends Component {
 	state = {

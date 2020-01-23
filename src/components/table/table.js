@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyledTable } from "./tablestyles";
+import { StyledTable } from "./styles";
 import TableData from "../tabledata/tabledata";
 
 const Table = (props) => {

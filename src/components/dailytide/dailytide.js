@@ -6,7 +6,7 @@ import Table from "../table/table";
 import Spinner from "../../elements/spinner";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
-import { GraphWrapper, TableWrapper } from "./dailytidestyles";
+import { GraphWrapper, TableWrapper } from "./styles";
 
 class DailyTide extends Component {
 	state = {
