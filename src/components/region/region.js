@@ -1,20 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components";
-
-const DDWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`;
-
-const PadSpan = styled.span`
-	padding-right: 7px;
-`;
-
-const Select = styled.select`
-	padding: 3px 3px;
-	border-radius: 5px;
-`;
+import { DDWrapper, PadSpan, Select } from "./regionstyles";
 
 class Region extends Component {
 	state = {
@@ -32,10 +17,7 @@ class Region extends Component {
 					<form>
 						<label>
 							<PadSpan>Region:</PadSpan>
-							<Select
-								value={this.state.region}
-								onChange={this.handleChange}
-							>
+							<Select value={this.state.region} onChange={this.handleChange}>
 								<option value={9410230}>San Diego</option>
 								<option value={9410660}>Los Angeles</option>
 								<option value={9411340}>Santa Barbara</option>

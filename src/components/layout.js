@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import GlobalStyle from "../styles/globalstyle";
-import Header from "./header";
-import Navigation from "./navigation";
-import Footer from "./footer";
+import Header from "./header/header";
+import Navigation from "./navigation/navigation";
+import Footer from "./footer/footer";
 
 const Layout = ({ children }) => {
 	return (
@@ -19,11 +19,7 @@ const Layout = ({ children }) => {
 			<Footer>
 				<p>
 					Data provided by NOAA:
-					<a
-						href="https://tidesandcurrents.noaa.gov/api/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
+					<a href="https://tidesandcurrents.noaa.gov/api/" target="_blank" rel="noopener noreferrer">
 						&nbsp;CO-OPS Data API
 					</a>
 				</p>

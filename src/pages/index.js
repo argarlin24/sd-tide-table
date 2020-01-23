@@ -2,10 +2,10 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import DailyTide from "../components/dailytide";
+import DailyTide from "../components/dailytide/dailytide";
 import PageTitle from "../elements/pagetitle";
 import SubHeading from "../elements/subheading";
-import Region from "../components/region";
+import Region from "../components/region/region";
 
 const IndexPage = () => (
 	<Layout>

@@ -3,9 +3,9 @@ import moment from "moment";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import MonthlyTide from "../components/monthlytide";
+import MonthlyTide from "../components/monthlytide/monthlytide";
 import PageTitle from "../elements/pagetitle";
-import Region from "../components/region";
+import Region from "../components/region/region";
 
 const SecondPage = () => (
 	<Layout>

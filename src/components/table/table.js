@@ -1,16 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
-import TableData from "./tabledata";
-
-const StyledTable = styled.table`
-	width: 50%;
-	margin: 0 auto;
-	& th,
-	td {
-		text-align: center;
-	}
-`;
+import { StyledTable } from "./tablestyles";
+import TableData from "../tabledata/tabledata";
 
 const Table = (props) => {
 	return (

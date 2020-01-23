@@ -1,25 +1,12 @@
 import React, { Component } from "react";
-import db from "../db";
+import db from "../../db";
 import moment from "moment";
-import styled from "styled-components";
-import LineChart from "./linechart";
-import Table from "./table";
-import Spinner from "../elements/spinner";
+import LineChart from "../linechart/linechart";
+import Table from "../table/table";
+import Spinner from "../../elements/spinner";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
-
-const GraphWrapper = styled.div`
-	width: 50%;
-	height: auto;
-	margin: 0 auto;
-	@media (max-width: 770px) {
-		width: 75%;
-	}
-`;
-
-const TableWrapper = styled.div`
-	padding-top: 60px;
-`;
+import { GraphWrapper, TableWrapper } from "./dailytidestyles";
 
 class DailyTide extends Component {
 	state = {
