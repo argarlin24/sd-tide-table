@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import db from "../../db";
 import moment from "moment";
-import Table from "../table/table";
+import Table from "../table";
 import Spinner from "../../elements/spinner";
 import Fade from "react-reveal/Fade";
 

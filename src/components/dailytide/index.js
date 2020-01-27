@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import db from "../../db";
 import moment from "moment";
-import LineChart from "../linechart/linechart";
-import Table from "../table/table";
+import LineChart from "../linechart";
+import Table from "../table";
 import Spinner from "../../elements/spinner";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
