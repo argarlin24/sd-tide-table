@@ -15,9 +15,9 @@ class Region extends Component {
 			<>
 				<DDWrapper>
 					<form>
-						<label>
+						<label htmlFor="region">
 							<PadSpan>Region:</PadSpan>
-							<Select value={this.state.region} onChange={this.handleChange}>
+							<Select id="region" name="region" value={this.state.region} onChange={this.handleChange}>
 								<option value={9410230}>San Diego</option>
 								<option value={9410660}>Los Angeles</option>
 								<option value={9411340}>Santa Barbara</option>
