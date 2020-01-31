@@ -117,7 +117,7 @@ class DailyTide extends Component {
 				<TableWrapper>
 					{this.state.hiLoData ? (
 						<Fade duration={5000}>
-							<Table data={this.state.hiLoData} />
+							<Table data={this.state.hiLoData} highlight={false} />
 						</Fade>
 					) : (
 						<Spinner />

@@ -71,7 +71,7 @@ class MonthlyTide extends Component {
 			<div>
 				{this.state.tideData ? (
 					<Fade duration={5000}>
-						<Table data={this.state.tideData} />
+						<Table data={this.state.tideData} highlight={true} />
 					</Fade>
 				) : (
 					<Fade>

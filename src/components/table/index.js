@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { StyledTable } from "./styles";
 import TableData from "../tabledata";
 
-const Table = ({ data }) => {
+const Table = ({ data, highlight }) => {
 	return (
 		<StyledTable>
 			<tbody>
@@ -15,7 +15,7 @@ const Table = ({ data }) => {
 				{data.predictions.map((prediction, index) => {
 					return (
 						<tr key={index}>
-							<TableData prediction={prediction} />
+							<TableData prediction={prediction} highlight={highlight} />
 						</tr>
 					);
 				})}
