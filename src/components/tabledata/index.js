@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
-import { Current } from "./styles";
+import { TD } from "./styles";
 
 const TableData = ({ prediction, highlight }) => {
 	const TIME = moment(prediction.t, "YYYYMMDD HH:mm").format("MM/DD hh:mm a");
@@ -11,19 +11,13 @@ const TableData = ({ prediction, highlight }) => {
 
 	return (
 		<>
-			{CURRENT && highlight ? (
-				<>
-					<Current>{TIME}</Current>
-					<Current>{`${TIDE_LEVEL} ft`}</Current>
-					<Current>{HILO}</Current>
-				</>
-			) : (
-				<>
-					<td>{TIME}</td>
-					<td>{`${TIDE_LEVEL} ft`}</td>
-					<td>{HILO}</td>
-				</>
-			)}
+			<TD current={CURRENT} highlight={highlight}>
+				{TIME}
+			</TD>
+			<TD current={CURRENT} highlight={highlight}>{`${TIDE_LEVEL} ft`}</TD>
+			<TD current={CURRENT} highlight={highlight}>
+				{HILO}
+			</TD>
 		</>
 	);
 };

@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const Current = styled.td`
-	color: #3f51b5;
+export const TD = styled.td`
+	color: ${(props) => (props.highlight && props.current ? "#3f51b5" : "#263238")};
 `;
