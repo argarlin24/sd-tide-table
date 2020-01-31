@@ -4,6 +4,7 @@ import moment from "moment";
 import Table from "../table";
 import Spinner from "../../elements/spinner";
 import Fade from "react-reveal/Fade";
+import { Wrapper } from "./styles";
 
 class MonthlyTide extends Component {
 	state = {

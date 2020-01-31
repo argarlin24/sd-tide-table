@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { StyledTable } from "./styles";
 import TableData from "../tabledata";
 
-const Table = (props) => {
+const Table = ({ data }) => {
 	return (
 		<StyledTable>
 			<tbody>
@@ -12,7 +12,7 @@ const Table = (props) => {
 					<th scope="col">Height</th>
 					<th scope="col">High/Low</th>
 				</tr>
-				{props.data.predictions.map((prediction, index) => {
+				{data.predictions.map((prediction, index) => {
 					return (
 						<tr key={index}>
 							<TableData prediction={prediction} />

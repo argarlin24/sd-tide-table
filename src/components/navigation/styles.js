@@ -6,6 +6,11 @@ export const NavWrapper = styled.div`
 	padding: 15px 30px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 	align-content: center;
+	justify-content: space-between;
+
+	@media (max-width: 414px) {
+		padding: 15px 15px;
+	}
 `;
 
 export const NavItems = styled.nav`
@@ -14,11 +19,22 @@ export const NavItems = styled.nav`
 `;
 
 export const NavLink = styled.div`
-	padding-right: 30px;
+	display: flex;
+	padding-right: 15px;
 
 	& a {
 		display: block;
 		text-decoration: none;
-		color: #dddddd;
+		color: #ffffff;
 	}
+`;
+
+export const Flex = styled.div`
+	display: flex;
+`;
+
+export const StyledLogo = styled.img`
+	height: 50px;
+	width: auto;
+	margin-bottom: 0;
 `;

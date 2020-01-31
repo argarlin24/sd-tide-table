@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import { Current } from "./styles";
 
-const TableData = (props) => {
-	const TIME = moment(props.prediction.t, "YYYYMMDD HH:mm").format("MM/DD hh:mm a");
-	const TIDE_LEVEL = Number.parseFloat(props.prediction.v).toFixed(2);
-	const HILO = props.prediction.type;
+const TableData = ({ prediction }) => {
+	const TIME = moment(prediction.t, "YYYYMMDD HH:mm").format("MM/DD hh:mm a");
+	const TIDE_LEVEL = Number.parseFloat(prediction.v).toFixed(2);
+	const HILO = prediction.type;
 
-	if (moment().format("MMDD") === moment(props.prediction.t, "YYYYMMDD HH:mm").format("MMDD")) {
+	if (moment().format("MMDD") === moment(prediction.t, "YYYYMMDD HH:mm").format("MMDD")) {
 		return (
 			<>
 				<Current>{TIME}</Current>

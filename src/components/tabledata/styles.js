@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
 export const Current = styled.td`
-	color: #4bc0c0;
+	color: #3f51b5;
 `;

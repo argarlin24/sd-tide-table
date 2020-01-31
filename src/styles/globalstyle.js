@@ -4,7 +4,7 @@ import reset from "./reset";
 const GlobalStyle = createGlobalStyle`
   ${reset}
   body{
-    background: #373740;
+    background: #f4f6f8;
   }
 
 `;
