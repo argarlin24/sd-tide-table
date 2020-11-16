@@ -38,7 +38,7 @@ class DailyTide extends Component {
 			});
 			this.updateDB();
 		} catch (error) {
-			console.log(error);
+			console.log("This daily is the hilo error:", error);
 		}
 	}
 
@@ -58,7 +58,7 @@ class DailyTide extends Component {
 			});
 			this.updateDB();
 		} catch (error) {
-			console.log(error);
+			console.log("This daily is the complete level error:", error);
 		}
 	}
 

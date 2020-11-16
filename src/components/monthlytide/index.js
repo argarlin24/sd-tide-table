@@ -38,7 +38,7 @@ class MonthlyTide extends Component {
 			});
 			this.updateDB();
 		} catch (error) {
-			console.log(error);
+			console.log("This daily is the complete level error:", error);
 		}
 	}
 
