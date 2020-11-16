@@ -27,7 +27,10 @@ class DailyTide extends Component {
 		const today = moment().format("YYYYMMDD");
 		try {
 			const res = await fetch(
-				`https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&begin_date=${today}&end_date=${today}&datum=MLLW&station=${this.props.region}&time_zone=lst_ldt&units=english&interval=hilo&application=socaltides&format=json`
+				`https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&begin_date=${today}&end_date=${today}&datum=MLLW&station=${this.props.region}&time_zone=lst_ldt&units=english&interval=hilo&application=socaltides&format=json`,
+				{
+					referrer: "origin-when-cross-origin",
+				}
 			);
 			const data = await res.json();
 			this.setState({
@@ -44,7 +47,10 @@ class DailyTide extends Component {
 		const today = moment().format("YYYYMMDD");
 		try {
 			const res = await fetch(
-				`https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&begin_date=${today}&end_date=${today}&datum=MLLW&station=${this.props.region}&time_zone=lst_ldt&units=english&application=socaltides&format=json`
+				`https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&begin_date=${today}&end_date=${today}&datum=MLLW&station=${this.props.region}&time_zone=lst_ldt&units=english&application=socaltides&format=json`,
+				{
+					referrer: "origin-when-cross-origin",
+				}
 			);
 			const data = await res.json();
 			this.setState({
