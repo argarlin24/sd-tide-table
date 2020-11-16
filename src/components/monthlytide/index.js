@@ -26,7 +26,10 @@ class MonthlyTide extends Component {
 
 		try {
 			const res = await fetch(
-				`https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&begin_date=${BEGIN}&end_date=${END}&datum=MLLW&station=${this.props.region}&time_zone=lst_ldt&units=english&interval=hilo&format=json`
+				`https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&begin_date=${BEGIN}&end_date=${END}&datum=MLLW&station=${this.props.region}&time_zone=lst_ldt&units=english&interval=hilo&format=json`,
+				{
+					referrer: "origin-when-cross-origin",
+				}
 			);
 			const data = await res.json();
 			this.setState({
